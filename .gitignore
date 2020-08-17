@@ -1,0 +1,6 @@
+__pycache__/
+dist/
+**.ipynb
+**.egg-info
+.DS_Store
+.python-version
