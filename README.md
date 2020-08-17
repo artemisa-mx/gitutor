@@ -7,7 +7,7 @@ Welcome to Gitutor. This tool is meant to get you up and running using gitmin th
 
 Gitutor is a command line application that wraps git and provides beginner friendly versions of git's commands. It's Git the easy way.
 
-You can check out the tutorial and a further explanation of the commands in our [landing page](https://gitutor.io). And don't worry if you forget how to use a command you can always run 
+You can check out the tutorial and a further explanation of the commands in the [docs](https://gitutor.io/guide). And don't worry if you forget how to use a command you can always run
 
     $ gt <command> --help
 
