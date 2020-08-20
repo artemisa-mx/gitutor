@@ -24,7 +24,7 @@ You can check out the tutorial and a further explanation of the commands in the 
 
 In order to use gitutor without any dependencies version conflicts we recommend installing it using pipx.
 
-Pipx creates a virtual environment for your package and exposes its entry point so you can run gitutor from anywhere. Install pipx and make sure the $PATH is correctly configured
+Pipx creates a virtual environment for your package and exposes its entry point so you can run gitutor from anywhere. To install pipx and configure the $PATH run the following commands:
 
     $ python3 -m pip install --user pipx
     $ pipx ensurepath
