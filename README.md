@@ -11,6 +11,8 @@ You can check out the tutorial and a further explanation of the commands in the 
 
     $ gt <command> --help
 
+If you have any problems please send us an email at support@gitutor.io or open an issue in our [repo](https://github.com/artemisa-mx/gitutor/issues), we usually answer in less than a day.
+
 ## Available commands
 
 1. gt init - Initialize your local and remote repository.
@@ -22,31 +24,39 @@ You can check out the tutorial and a further explanation of the commands in the 
 
 ## Installation guide
 
-> NOTE: pipx and Gitutor work with Python3.6+
+> **NOTE**: pipx and gitutor work with Python3.6+
 
 In order to use gitutor without any dependencies version conflicts we recommend installing it using pipx. Pipx creates a virtual environment for your package and exposes its entry point so you can run gitutor from anywhere. 
 
 To install pipx and configure the $PATH run the following commands
-
-For MacOS and Linux use:
-
-    $ python3 -m pip install pipx
-    $ python3 -m pipx ensurepath
 
 For Windows: 
 
     $ python -m pip install pipx
     $ python -m pipx ensurepath
 
+For MacOS use:
+
+    $ brew install pipx
+
+For Linux use:
+
+    $ python3 -m pip install pipx
+    $ python3 -m pipx ensurepath
+
 > **NOTE**: You may need to restart your terminal for the path updates to take effect.
 
-Once pipx is installed, run the following to install gitutor
+Once pipx is installed, run the following to install gitutor:
 
     $ pipx install gitutor
 
-And to upgrade gitutor to its latest version you only need to run
+And to upgrade gitutor to its latest version you only need to run:
 
     $ pipx upgrade gitutor
+
+To install gitutor without using pipx just run:
+
+    $ pip install gitutor
 
 ## Additional notes
 
