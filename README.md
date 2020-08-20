@@ -77,4 +77,4 @@ For Windows you can install a helper called [Git Credential Manager for Windows]
     $ git config --global credential.helper manager
 
 
-If you like what we're doing you can buy as a (coffee)[https://ko-fi.com/artemisamx]
+If you like what we're doing you can buy as a [coffee](https://ko-fi.com/artemisamx)
