@@ -88,8 +88,8 @@ def update_gitignore(answers:list, dir_files:dict, gitignore_files:list, git_pat
             new_files.append(dir_files[file]['file_name'])
 
     # remove files 
-    for _, file_info in filter(lambda d: d[1]['is_ignored'], dir_files.items()):
-        if file_info['file_name'] not in answers:
+    for key, file_info in filter(lambda d: d[1]['is_ignored'], dir_files.items()):
+        if key not in answers:                                                              #file_info['file_name'] not in answers:
             gitignore_files.remove(file_info['file_name'])
 
     gitignore = '\n'.join(gitignore_files)
