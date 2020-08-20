@@ -22,12 +22,23 @@ You can check out the tutorial and a further explanation of the commands in the 
 
 ## Installation guide
 
-In order to use gitutor without any dependencies version conflicts we recommend installing it using pipx.
+> NOTE: pipx and Gitutor work with Python3.6+
 
-Pipx creates a virtual environment for your package and exposes its entry point so you can run gitutor from anywhere. To install pipx and configure the $PATH run the following commands:
+In order to use gitutor without any dependencies version conflicts we recommend installing it using pipx. Pipx creates a virtual environment for your package and exposes its entry point so you can run gitutor from anywhere. 
 
-    $ python3 -m pip install --user pipx
-    $ pipx ensurepath
+To install pipx and configure the $PATH run the following commands
+
+For MacOS and Linux use:
+
+    $ python3 -m pip install pipx
+    $ python3 -m pipx ensurepath
+
+For Windows: 
+
+    $ python -m pip install pipx
+    $ python -m pipx ensurepath
+
+> **NOTE**: You may need to restart your terminal for the path updates to take effect.
 
 Once pipx is installed, run the following to install gitutor
 
@@ -54,3 +65,6 @@ On Mac OS X you can use its native keystore with
 For Windows you can install a helper called [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) and then run
 
     $ git config --global credential.helper manager
+
+
+If you like what we're doing you can buy as a (coffee)[https://ko-fi.com/artemisamx]
