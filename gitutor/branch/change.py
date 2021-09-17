@@ -23,6 +23,8 @@ def get_branches(repo, get_all=True):
     else:
         branches = local_branches
         remote_branches = []
+
+    branches = sorted(list(branches))
     
     return branches, remote_branches
 
@@ -69,7 +71,6 @@ def change(ctx, get_all: bool, branch_name: str):
     if branch_name:
         try:
             repo.git.checkout(branch_name)
-        except GitCommandError as ex:
-            # error = "Please commit your changes or stash them before you switch branches.\nAborting"
-            error = str(ex)
+        except GitCommandError:
+            error = "Please commit your changes or stash them before you switch branches.\nAborting"
             click.echo(click.style(error, fg="yellow"))
