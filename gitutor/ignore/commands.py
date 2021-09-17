@@ -5,7 +5,8 @@ import difflib
 from PyInquirer import prompt
 from git import GitCommandError
 
-def get_files(path:str, git_path:str):
+
+def get_files(path: str, git_path: str):
     '''
     Get all files in path, including hidden files
     '''
@@ -15,7 +16,7 @@ def get_files(path:str, git_path:str):
     for f in ['.git', '.gitignore', '.github']:
         try:
             files.remove(f)
-        except:
+        except Exception:
             pass
     
     # get dir relative path to git's repo
@@ -25,10 +26,11 @@ def get_files(path:str, git_path:str):
     # create dictionary with files (key is the plain file name)
     dir_files = {}
     for key in files:
-        full_path = '{}/{}'.format(path,key)
+        full_path = '{}/{}'.format(path, key)
         folder = os.path.isdir(full_path)
 
-        if folder: key = key + '/'
+        if folder:
+            key = key + '/'
 
         dir_files[key] = {
             'file_name': '{}/{}'.format(relative_path, key) if len(relative_path) > 1 else key,
@@ -37,7 +39,8 @@ def get_files(path:str, git_path:str):
 
     return dir_files
 
-def get_gitignore_files(git_path:str):  
+
+def get_gitignore_files(git_path: str):  
     '''
     Get the files that already are in the .gitignore file
     '''
@@ -48,12 +51,13 @@ def get_gitignore_files(git_path:str):
         with open(gitignore_path, 'r') as _:
             files = re.sub(r'(\n+$)|(^\n)', '', _.read())
 
-        files = re.sub(r'(\n\s*){2,}','\n', files)
+        files = re.sub(r'(\n\s*){2,}', '\n', files)
         files = files.split("\n")
 
     return files
 
-def create_choices(dir_files:dict, gitignore_files:list):
+
+def create_choices(dir_files: dict, gitignore_files: list):
     '''
     Create choices list for the interactive menu.
     Files in .gitignore are checked
@@ -75,7 +79,8 @@ def create_choices(dir_files:dict, gitignore_files:list):
 
     return choices
 
-def update_gitignore(answers:list, dir_files:dict, gitignore_files:list, git_path: str):
+
+def update_gitignore(answers: list, dir_files: dict, gitignore_files: list, git_path: str):
     '''
     Update gitignore file
     '''
@@ -89,7 +94,7 @@ def update_gitignore(answers:list, dir_files:dict, gitignore_files:list, git_pat
 
     # remove files 
     for key, file_info in filter(lambda d: d[1]['is_ignored'], dir_files.items()):
-        if key not in answers:                                                              #file_info['file_name'] not in answers:
+        if key not in answers:
             gitignore_files.remove(file_info['file_name'])
 
     gitignore = '\n'.join(gitignore_files)
@@ -101,7 +106,8 @@ def update_gitignore(answers:list, dir_files:dict, gitignore_files:list, git_pat
 
     return new_files
 
-def remove_tracked_files(new_files:list, repo):
+
+def remove_tracked_files(new_files: list, repo):
     '''
     Remove tracked files in gitignore from repo
     '''
@@ -111,7 +117,7 @@ def remove_tracked_files(new_files:list, repo):
     new_tracked_files = []
     for file in new_files:
         if '/' in file:
-            regex = re.compile('^'+file+".*")
+            regex = re.compile('^' + file + ".*")
             new_tracked_files.extend(filter(regex.match, tracked_files))
         elif file in tracked_files:
             new_tracked_files.append(file)
@@ -120,8 +126,9 @@ def remove_tracked_files(new_files:list, repo):
         repo.git.rm(new_tracked_files, "-r", "--cached")
         try:
             repo.git.commit("-m", "Remove ignored files from repo")
-        except GitCommandError as e:
+        except GitCommandError:
             pass
+
 
 @click.command()
 @click.pass_context
