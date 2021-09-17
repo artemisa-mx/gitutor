@@ -1,5 +1,6 @@
 import click
 
+from .change import change
 from .create import create
 
 
@@ -19,3 +20,4 @@ def branch(ctx):
 
 
 branch.add_command(create)
+branch.add_command(change)

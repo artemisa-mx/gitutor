@@ -27,7 +27,7 @@ def create(ctx, is_local: bool, branch_name: str):
 
     # create new branch
     try:
-        repo.git.checkout('HEAD', b=branch_name)
+        repo.git.checkout(b=branch_name)
     except GitCommandError:
         error = f"fatal: A branch named '{branch_name}' already exists."
         click.echo(click.style(error, fg="red"))
