@@ -2,35 +2,11 @@ import click
 from git import GitCommandError
 from PyInquirer import prompt
 
-
-def get_branches(repo, get_all=True):
-    local_branches = set(branch.name for branch in repo.branches)
-
-    if get_all:
-        branches = []
-        remote_refs = repo.remote().refs
-        for refs in remote_refs:
-            branch = refs.name
-            branch = branch.replace("origin/", "")
-
-            if branch == "HEAD":
-                continue
-
-            branches.append(branch)
-
-        remote_branches = set(branches) - local_branches
-        branches = set(branches).union(local_branches)
-    else:
-        branches = local_branches
-        remote_branches = []
-
-    branches = sorted(list(branches))
-    
-    return branches, remote_branches
+from .utils import list_branches
 
 
 def get_new_branch(repo, get_all):
-    repo_branches, remote_branches = get_branches(repo, get_all)
+    repo_branches, _, _ = list_branches(repo, get_all)
 
     message = f"Select the branch you want to use. Current branch is {repo.active_branch.name}"
 
