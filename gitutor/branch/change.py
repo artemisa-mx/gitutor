@@ -32,7 +32,7 @@ def get_branches(repo, get_all=True):
 def get_new_branch(repo, get_all):
     repo_branches, remote_branches = get_branches(repo, get_all)
 
-    message = "Select the branch you want to use."
+    message = f"Select the branch you want to use. Current branch is {repo.active_branch.name}"
 
     questions = [
         {
