@@ -49,5 +49,9 @@ cli.add_command(branch)
 cli.add_command(lesson)
 
 
-if __name__ == '__main__':
+def main():
     cli(obj={})
+
+
+if __name__ == '__main__':
+    main()

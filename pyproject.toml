@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gitutor"
-version = "0.6.2"
+version = "0.6.3"
 description = "A command line app that makes Git easy."
 readme = "README.md"
 authors = ["AMAI"]
