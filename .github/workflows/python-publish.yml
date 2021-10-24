@@ -17,7 +17,7 @@ jobs:
       with:
         python-version: '3.9.7'
     - name: Install Poetry
-      uses: dsnok/install-poetry@v1.2.1
+      uses: snok/install-poetry@v1.2.1
     - name: setup .gitconfig
       run: echo "1" > ./gitutor/.gitutor_config
     - name: Build and publish
