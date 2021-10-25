@@ -28,6 +28,7 @@ def cli(ctx):
 
     Any issues, questions or bugs you can reach us at support@gitutor.io
     """
+
     # Check ctx was initialized
     ctx.ensure_object(dict)
 
