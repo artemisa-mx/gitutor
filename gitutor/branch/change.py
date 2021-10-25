@@ -31,7 +31,7 @@ def get_new_branch(repo, get_all):
 
 @click.command()
 @click.pass_context
-@click.option('-a', '--all', 'get_all', is_flag=True, help="create local branch", default=False)
+@click.option('-a', '--all', 'get_all', is_flag=True, help="show remote and local branches", default=False)
 @click.option('-b', '--branch', 'branch_name', help="branch name")
 def change(ctx, get_all: bool, branch_name: str):
     """

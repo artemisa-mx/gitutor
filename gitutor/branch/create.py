@@ -35,6 +35,6 @@ def create(ctx, is_local: bool, branch_name: str):
         # create branch in remote repo
         if not is_local:
             repo.git.execute(["git", "push", "--set-upstream", "origin", branch_name])
-            click.echo(f"Local branch {branch_name} created successfully!")
-        else:
             click.echo(f"Branch {branch_name} created successfully!")
+        else:
+            click.echo(f"Local branch {branch_name} created successfully!")
