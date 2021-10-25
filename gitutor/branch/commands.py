@@ -2,7 +2,7 @@ import click
 
 from .change import change
 from .create import create
-
+from .delete import delete
 
 class CustomGroup(click.Group):
     def invoke(self, ctx):
@@ -21,3 +21,4 @@ def branch(ctx):
 
 branch.add_command(create)
 branch.add_command(change)
+branch.add_command(delete)
