@@ -60,7 +60,7 @@ def can_delete(branch_name, merged_branches, remote_branches, force, is_local):
 @click.option('-b', '--branch', 'branch_name', help="branch to delete")
 def delete(ctx, is_local: bool, force: bool, branch_name: str):
     """
-    Change current branch
+    Delete branches remote or only locally
     """
     # recover repository's object from context
     repo = ctx.obj['REPO']
