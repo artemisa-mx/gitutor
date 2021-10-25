@@ -2,7 +2,7 @@ def list_branches(repo, get_all=True):
     local_branches = set(branch.name for branch in repo.branches)
 
     if get_all:
-        branches = []
+        remote_branches = []
         remote_refs = repo.remote().refs
         for refs in remote_refs:
             branch = refs.name
@@ -11,10 +11,9 @@ def list_branches(repo, get_all=True):
             if branch == "HEAD":
                 continue
 
-            branches.append(branch)
+            remote_branches.append(branch)
 
-        remote_branches = set(branches) - local_branches
-        branches = set(branches).union(local_branches)
+        branches = set(remote_branches).union(local_branches)
     else:
         branches = local_branches
         remote_branches = []

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gitutor"
-version = "0.6.4"
+version = "0.6.5"
 description = "A command line app that makes Git easy."
 readme = "README.md"
 authors = ["AMAI"]
@@ -30,6 +30,7 @@ requests="^2.20.0"
 
 [tool.poetry.scripts]
 gt = 'gitutor.cli:main'
+gtb = 'gitutor.branch.commands:main'
 
 [build-system]
 requires = ["poetry>=0.12"]
